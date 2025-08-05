@@ -1,0 +1,37 @@
+.dropify-wrapper .dropify-wrapper{
+    top: -79px !important;
+    border: none !important;
+}
+
+.user-media{
+    width: 60px !important;
+    height: 60px !important;
+}
+.pagination-content{
+    display: flex;
+    justify-content: end;
+}
+.pagination-content ul{
+    width: fit-content;
+}
+.text-danger{
+    color: red;
+}
+.blog-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn-custom{
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: fit-content;
+    height: fit-content;
+    color: #4c4c4c;
+    border-radius: 5px;
+}
+.btn-custom i{
+    font-size: 16px;
+}
