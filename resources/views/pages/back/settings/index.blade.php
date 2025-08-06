@@ -79,6 +79,11 @@
                                 <label for="about" class="">About *</label>
                               </div>
                               <div class="input-field col s12">
+                                <i class="material-icons prefix"> note </i>
+                                <textarea id="motivation" name="motivation" type="text" class="materialize-textarea">{{ $data->motivation }}</textarea>
+                                <label for="motivation" class="">Motivation *</label>
+                              </div>
+                              <div class="input-field col s12">
                                 <i class="material-icons prefix"> location_on </i>
                                 <textarea id="address" name="address" type="text" class="materialize-textarea">{{ $data->address }}</textarea>
                                 <label for="address" class="">Address *</label>

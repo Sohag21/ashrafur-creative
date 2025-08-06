@@ -867,7 +867,7 @@ a{
 .kioto_tm_timeline li .year span{
 	display: inline-block;
 	border: 1px solid rgba(0,0,0,.1);
-	padding: 5px 20px;
+	padding: 5px;
 }
 .kioto_tm_timeline li .info{
 	padding-right: 30px;
@@ -954,9 +954,12 @@ a{
 	flex-wrap: wrap;
 }
 .kioto_tm_members .list > ul > li{
-	width: 33.3333%;
+	width: 25%;
 	padding-left: 30px;
 	margin-bottom: 30px;
+}
+.kioto_tm_members .kioto_tm_social{
+    text-align: justify;
 }
 .kioto_tm_members .list > ul > li .list_inner{
 	width: 100%;
@@ -966,7 +969,6 @@ a{
 }
 .kioto_tm_members .list .abs_image{
 	margin-bottom: 10px;
-    height: 360px;
 	overflow: hidden;
 }
 .kioto_tm_members .list_inner .abs_image:before{
@@ -989,7 +991,7 @@ a{
 }
 .kioto_tm_members .list ul .details{
 	border-top: 1px solid rgba(0,0,0,.1);
-	padding: 20px 20px 10px 20px;
+	padding: 20px 5px 10px 5px;
 }
 .kioto_tm_members .list .name{
 	font-size: 18px;
@@ -1020,7 +1022,7 @@ a{
 	float: left;
 	position: relative;
 	border: 1px solid rgba(0,0,0,.1);
-	padding: 40px;
+	padding: 10px;
 }
 .kioto_tm_testimonials .list ul li .text{
 	width: 100%;
@@ -1052,6 +1054,25 @@ a{
 	background-size: cover;
 	background-position: center;
 	border-radius: 100%;
+}
+.kioto_tm_testimonials .owl-carousel .owl-nav{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+.kioto_tm_testimonials .owl-carousel .owl-nav .owl-prev , .owl-next{
+    width: 30px;
+    height: 30px;
+    background: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #767474;
+}
+.kioto_tm_testimonials .owl-carousel .owl-nav .owl-prev:hover , .owl-next:hover{
+    background: #dedcdc;
 }
 .kioto_tm_testimonials .details .info{
 	padding-left: 20px;
@@ -1509,7 +1530,13 @@ a{
 	-webkit-appearance: none;
 	margin: 0;
 }
-
+.home-des p{
+    margin-top: 20px;
+    text-align: justify;
+}
+.p-info-div{
+    display: flex;
+}
 /* Firefox */
 .kioto_tm_contact input[type=number] {
   -moz-appearance: textfield;

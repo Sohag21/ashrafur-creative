@@ -10,7 +10,7 @@ class Settings extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'phone', 'public_email', 'about', 'institute', 'degree', 'photo', 'cover', 'resume', 'address', 'interests', 'awards', 'links', 'skills', 'languages', 'facts', 'educations', 'experiences', 'designation'];
+    protected $fillable = ['user_id', 'phone', 'public_email', 'about',  'motivation', 'institute', 'degree', 'photo', 'cover', 'resume', 'address', 'interests', 'awards', 'links', 'skills', 'languages', 'facts', 'educations', 'experiences', 'designation'];
 
     protected $casts = [
         'interests' => 'array',

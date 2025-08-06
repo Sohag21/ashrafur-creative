@@ -7,9 +7,9 @@
 jQuery(document).ready(function(){
 
 	"use strict";
-	
+
 	// here all ready functions
-	
+
 	kioto_tm_modalbox();
 	kioto_tm_text_hover_effect();
 	kioto_tm_page_transition();
@@ -27,11 +27,11 @@ jQuery(document).ready(function(){
 	kioto_tm_news_hover_effect();
 	kioto_tm_section_top();
 	kioto_tm_ripple();
-	
+
 	jQuery(window).load('body', function(){
 		kioto_tm_my_load();
 	});
-	
+
 });
 
 // -----------------------------------------------------
@@ -44,7 +44,7 @@ jQuery(document).ready(function(){
 
 function kioto_tm_modalbox(){
 	"use strict";
-	
+
 	jQuery('.kioto_tm_all_wrap').prepend('<div class="kioto_tm_modalbox"><div class="box_inner"><div class="close"><a href="#"><i class="icon-cancel"></i></a></div><div class="description_wrap"></div></div></div>');
 }
 
@@ -53,11 +53,11 @@ function kioto_tm_modalbox(){
 // -----------------------------------------------------
 
 function kioto_tm_text_hover_effect(){
-	
+
 	"use strict";
-	
+
 	var div = jQuery('.tm_text_effect');
-	
+
 	div.each(function(){
 		var element = jQuery(this);
 		var text 	= element.text();
@@ -71,16 +71,16 @@ function kioto_tm_text_hover_effect(){
 // -----------------------------------------------------
 
 function kioto_tm_page_transition(){
-	
+
 	"use strict";
-	
+
 	var section 		= jQuery('.kioto_tm_section');
 	var allLi 			= jQuery('.transition_link li');
 	var button			= jQuery('.transition_link a');
 	var wrapper 		= jQuery('.kioto_tm_all_wrap');
 	var enter	 		= wrapper.data('enter');
 	var exit		 	= wrapper.data('exit');
-	
+
 	button.on('click',function(){
 		var element 	= jQuery(this);
 		var href		= element.attr('href');
@@ -111,7 +111,7 @@ function kioto_tm_page_transition(){
 // -----------------------------------------------------
 
 function kioto_tm_trigger_menu(){
-	
+
 	"use strict";
 
 	var hamburger 		= jQuery('.kioto_tm_topbar .trigger .hamburger');
@@ -130,7 +130,7 @@ function kioto_tm_trigger_menu(){
 		}
 		return false;
 	});
-	
+
 	mobileMenuList.on('click',function(){
 		jQuery('.kioto_tm_topbar .trigger .hamburger').removeClass('is-active');
 		mobileMenu.removeClass('opened');
@@ -143,13 +143,13 @@ function kioto_tm_trigger_menu(){
 // -------------------------------------------------
 
 function kioto_tm_modalbox_news(){
-	
+
 	"use strict";
-	
+
 	var modalBox		= jQuery('.kioto_tm_modalbox');
 	var button			= jQuery('.kioto_tm_news .kioto_tm_full_link');
 	var closePopup		= modalBox.find('.close');
-	
+
 	button.on('click',function(){
 		var element 	= jQuery(this);
 		var parent 		= element.closest('li');
@@ -176,12 +176,12 @@ function kioto_tm_modalbox_news(){
 // -------------------------------------------------
 
 function kioto_tm_modalbox_portfolio(){
-	
+
 	"use strict";
-	
+
 	var modalBox	= jQuery('.kioto_tm_modalbox');
 	var button		= jQuery('.kioto_tm_portfolio .portfolio_popup');
-	
+
 	button.on('click',function(){
 		var element 	= jQuery(this);
 		var parent		= element.closest('li');
@@ -189,11 +189,11 @@ function kioto_tm_modalbox_portfolio(){
 		var details 	= parent.find('.hidden_content_portfolio').html();
 		var title 		= parent.find('.details .name').text();
 		var category 	= parent.find('.details .job').text();
-		
+
 		modalBox.addClass('opened');
 		modalBox.find('.description_wrap').html(details);
 		modalBox.find('.popup_details').prepend('<div class="top_image"><img src="img/thumbs/4-2.jpg" alt="" /><div class="main" data-img-url="'+image+'"></div></div>');
-		modalBox.find('.popup_details .top_image').after('<div class="portfolio_main_title"><h3>'+title+'</h3><span>'+category+'</span><div>');	
+		modalBox.find('.popup_details .top_image').after('<div class="portfolio_main_title"><h3>'+title+'</h3><span>'+category+'</span><div>');
 		kioto_tm_data_images();
 		return false;
 	});
@@ -203,7 +203,7 @@ function kioto_tm_modalbox_portfolio(){
 // -----------------    PORTFOLIO    ---------------
 // -------------------------------------------------
 
-// filterable 
+// filterable
 
 function kioto_tm_portfolio(){
 
@@ -216,10 +216,10 @@ function kioto_tm_portfolio(){
 		var filter		 = jQuery('.kioto_tm_portfolio .portfolio_filter ul');
 
 		if(filter.length){
-			// Isotope Filter 
+			// Isotope Filter
 			filter.find('a').on('click', function(){
 				var selector = jQuery(this).attr('data-filter');
-				list.isotope({ 
+				list.isotope({
 					filter				: selector,
 					animationOptions	: {
 						duration			: 750,
@@ -228,14 +228,14 @@ function kioto_tm_portfolio(){
 					}
 				});
 				return false;
-			});	
+			});
 
 			// Change active element class
 			filter.find('a').on('click', function() {
 				filter.find('a').removeClass('current');
 				jQuery(this).addClass('current');
 				return false;
-			});	
+			});
 		}
 	}
 }
@@ -245,9 +245,9 @@ function kioto_tm_portfolio(){
 // -------------------------------------------------
 
 function kioto_tm_progress(){
-	
+
 	"use strict";
-	
+
 	jQuery('.progress_inner').each(function() {
 		var progress 		= jQuery(this);
 		var pValue 			= parseInt(progress.data('value'), 10);
@@ -264,12 +264,12 @@ function kioto_tm_progress(){
 // -----------------------------------------------------
 
 function kioto_tm_preloader(){
-	
+
 	"use strict";
-	
+
 	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 	var preloader = $('#preloader');
-	
+
 	if (!isMobile) {
 		setTimeout(function() {
 			preloader.addClass('preloaded');
@@ -288,9 +288,9 @@ function kioto_tm_preloader(){
 // -----------------------------------------------------
 
 function kioto_tm_my_load(){
-	
+
 	"use strict";
-	
+
 	var speed	= 500;
 	setTimeout(function(){kioto_tm_preloader();},speed);
 }
@@ -301,9 +301,9 @@ function kioto_tm_my_load(){
 
 function kioto_tm_cursor(){
     "use strict";
-	
+
 	var myCursor	= jQuery('.mouse-cursor');
-	
+
 	if(myCursor.length){
 		if ($("body")) {
         const e = document.querySelector(".cursor-inner"),
@@ -326,11 +326,11 @@ function kioto_tm_cursor(){
 // -----------------------------------------------------
 
 function kioto_tm_imgtosvg(){
-	
+
 	"use strict";
-	
+
 	jQuery('img.html').each(function(){
-		
+
 		var jQueryimg 		= jQuery(this);
 		var imgClass		= jQueryimg.attr('class');
 		var imgURL			= jQueryimg.attr('src');
@@ -360,7 +360,7 @@ function kioto_tm_imgtosvg(){
 // -----------------------------------------------------
 
 function kioto_tm_popup(){
-	
+
 	"use strict";
 
 	jQuery('.gallery_zoom').each(function() { // the containers for all your galleries
@@ -385,11 +385,11 @@ function kioto_tm_popup(){
 			fixedContentPos: false
 		});
 	});
-	
+
 	jQuery('.soundcloude_link').magnificPopup({
 	  type : 'image',
 	   gallery: {
-		   enabled: true, 
+		   enabled: true,
 	   },
 	});
 }
@@ -399,11 +399,11 @@ function kioto_tm_popup(){
 // -----------------------------------------------------
 
 function kioto_tm_data_images(){
-	
+
 	"use strict";
-	
+
 	var data			= jQuery('*[data-img-url]');
-	
+
 	data.each(function(){
 		var element			= jQuery(this);
 		var url				= element.data('img-url');
@@ -418,28 +418,36 @@ function kioto_tm_data_images(){
 function kioto_tm_owl_carousel(){
 
 	"use strict";
-	
-	var carousel			= jQuery('.kioto_tm_testimonials .owl-carousel');
-	
+
+	var carousel = jQuery('.kioto_tm_testimonials .owl-carousel');
+
 	carousel.owlCarousel({
-		loop: true,
-		items: 2,
-		lazyLoad: false,
-		margin: 30,
-		autoplay: true,
-		autoplayTimeout: 7000,
-		dots: false,
-		nav: false,
-		navSpeed: false,
-		responsive : {
-			0 : {
-				items: 1
-			},
-			768 : {
-				items: 2
-			}
-		}
-	});
+        loop: true,
+        items: 3,
+        lazyLoad: false,
+        margin: 30,
+        autoplay: true,
+        autoplayTimeout: 7000,
+        dots: true,
+        nav: true,
+        navSpeed: 1000, // changed false to a speed value in ms
+        navText: [
+            '<',   // Prev icon
+            '>'   // Next icon
+        ],
+        responsive : {
+            0 : {
+                items: 1
+            },
+            768 : {
+                items: 2
+            },
+            950 : {
+                items: 3
+            }
+        }
+    });
+
 }
 
 // -------------------------------------------------
@@ -447,9 +455,9 @@ function kioto_tm_owl_carousel(){
 // -------------------------------------------------
 
 function kioto_tm_marquee() {
-	
+
 	"use strict";
-	
+
 	$('.marquee').marquee({
 		duration: 30000,
 		duplicated: true,
@@ -463,29 +471,29 @@ function kioto_tm_marquee() {
 // -------------------------------------------------
 
 function kioto_tm_news_hover_effect(){
-	
+
 	"use strict";
 	kioto_tm_hover_image();
-	
+
 	var ww 		= jQuery(window).width();
 	var ul		= jQuery('.kioto_tm_news .news_list > ul');
 	var list	= jQuery('.kioto_tm_news .news_list > ul > li');
 	var box		= jQuery('.hover_image');
 	var metabox	= jQuery('.kioto_tm_metabox');
-	
+
 	if(ww >= 1024){
 		list.each(function(){
 			var e = $(this);
 			box.find('.main').append('<div class="img" style="background-image: url('+e.find('.news_image').attr('src')+');"></div>');
 		});
-		
+
 		list.on('mouseenter',function(){
 			var element = jQuery(this);
 			var index = element.index();
 			box.find('.main .img').removeClass('active');
 			box.find('.main .img:eq('+index+')').addClass('active');
 		}).on('mouseleave',function(){
-			
+
 		});
 		ul.on('mouseenter',function(){
 			metabox.css({opacity:'0',visibility:'hidden'});
@@ -495,7 +503,7 @@ function kioto_tm_news_hover_effect(){
 			box.css({opacity:'0',visibility:'hidden'});
 		});
 	}
-	
+
 }
 
 // -----------------------------------------------------
@@ -504,7 +512,7 @@ function kioto_tm_news_hover_effect(){
 
 function kioto_tm_hover_image(){
 	"use strict";
-	
+
 	jQuery('body').prepend('<div class="hover_image"><div class="abs_image"><img src="img/thumbs/3-4.jpg" alt="" /><div class="main"></div></div></div>');
 }
 
@@ -514,10 +522,10 @@ function kioto_tm_hover_image(){
 
 function kioto_tm_section_top(){
 	"use strict";
-	
+
 	var button	= jQuery('.kioto_tm_all_wrap .leftpart .menu ul li a,.kioto_tm_mobile_menu .menu_list ul li a');
 	var section = jQuery('.kioto_tm_section');
-	
+
 	button.on('click',function(){
 		section.animate({ scrollTop: 0 }, 'slow');
 		return false;
@@ -530,7 +538,7 @@ function kioto_tm_section_top(){
 // -------------------------------------------------
 
 function kioto_tm_ripple(){
-	
+
 	"use strict";
 
 	jQuery('#ripple').ripples({

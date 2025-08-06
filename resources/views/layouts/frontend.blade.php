@@ -118,6 +118,10 @@
                                         @endif
 									</span>
 								</h3>
+
+                                <div class="home-des">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas fugiat perspiciatis ullam tempore magnam libero blanditiis quasi praesentium quod, placeat ea impedit odio deleniti facilis, at laborum vitae quas ab aut laboriosam voluptatibus repellat. Cupiditate harum voluptates dignissimos ipsa! Dolore maxime magnam fuga laborum quae debitis similique molestiae cum harum dignissimos, iusto, cupiditate nobis praesentium eveniet tenetur consectetur repudiandae consequatur est repellendus atque omnis illum necessitatibus! Est architecto exercitationem expedita fugit, dolor, officia aspernatur iste, optio labore neque accusantium sequi.</p>
+                                </div>
 								<div class="kioto_tm_button transition_link">
 									<a class="tm_text_effect" href="#contact">Get in Touch</a>
 								</div>
@@ -143,7 +147,7 @@
 										<span>// Biography</span>
 									</div>
 									<div class="text">
-										<p> {{ $data->about }}</p>
+										<p style="text-align: justify"> {{ $data->about }}</p>
 									</div>
 									<div class="kioto_tm_button">
 										<a class="tm_text_effect" href="{{ 'storage' . $data->resume }}" download>Download CV</a>
@@ -160,16 +164,18 @@
 												<span>{{ $user->name }}</span>
 											</li>
 											<li>
-												<span>Address:</span>
-												<span>{{ $data->address }}</span>
+												<span>Profession:</span>
+												<span>{{ $data->designation[0] }}</span>
 											</li>
 											<li>
-												<span>Study:</span>
-												<span>{{ $data->institute }}</span>
+												<div class="p-info-div">
+                                                    <span>Address:</span>
+												    <span>{{ $data->address }}</span>
+                                                </div>
 											</li>
 											<li>
-												<span>Degree:</span>
-												<span>{{ $data->degree }}</span>
+												<span>Nationality:</span>
+												<span>Bangladeshi</span>
 											</li>
 											<li>
 												<span>Mail:</span>
@@ -190,7 +196,7 @@
 							<div class="kioto_tm_skills">
 								<div class="left">
 									<div class="kioto_tm_title">
-										<span>// Programming Skills</span>
+										<span>// Skills</span>
 									</div>
 									<div class="kioto_progress">
                                         @php
@@ -298,11 +304,14 @@
 														<span>{{ $edu['degree'] }}</span>
 													</div>
 													<div class="year">
-														<span>{{ $edu['start'] }} - @if ($edu['end'])
-                                                            {{ $edu['start'] }}
-                                                        @else
-                                                            Running
-                                                        @endif</span>
+														<span>
+                                                            {{ $edu['start'] }} -
+                                                            @if ($edu['end'])
+                                                                {{ $edu['end'] }}
+                                                            @else
+                                                                Running
+                                                            @endif
+                                                        </span>
 													</div>
 												</div>
 											</li>
@@ -384,19 +393,27 @@
 								</div>
 								<div class="list">
 									<ul>
-                                        @foreach ($members as $member)
+                                        @foreach ($members as $key => $member)
 										<li>
 											<div class="list_inner">
 												<div class="abs_image">
 													<img src="{{ asset('storage/' . $member->image) }}" alt="" />
-													<div width="220px" class="main" data-img-url="{{ asset('storage/' . $member->image) }}"></div>
+													<div class="main" data-img-url="{{ asset('storage/' . $member->image) }}"></div>
 												</div>
 												<div class="details">
 													<h3 class="name">{{ $member->name }}</h3>
 													<span class="job">{{ $member->designation }}</span>
-													<div class="kioto_tm_social">
-														{{ $member->about }}
-													</div>
+                                                    @php
+                                                        $words = explode(' ', strip_tags($member->about));
+                                                        $shortText = implode(' ', array_slice($words, 0, 8)) . (count($words) > 8 ? '...' : '');
+                                                    @endphp
+
+                                                    <p class="kioto_tm_social about-text" data-full="{{ e($member->about) }}" data-id="about-{{ $key }}">
+                                                        {{ $shortText }}
+                                                        @if(count($words) > 8)
+                                                            <a href="#" class="read-more" data-id="about-{{ $key }}">More</a>
+                                                        @endif
+                                                    </p>
 												</div>
 											</div>
 										</li>
@@ -409,8 +426,9 @@
 									<span>// Clients Testimonials</span>
 								</div>
 								<div class="list">
+									@if(!empty($tests))
 									<ul class="owl-carousel">
-                                        @foreach ($tests as $test)
+                                        @forelse ($tests as $test)
 										<li>
 											<div class="list_inner">
 												<div class="text">
@@ -427,8 +445,11 @@
 												</div>
 											</div>
 										</li>
-                                        @endforeach
+                                        @empty
+                                        <p>No data found :)</p>
+                                        @endforelse
 									</ul>
+                                  @endif
 								</div>
 							</div>
 						</div>
@@ -752,6 +773,28 @@
 <script src="{{ asset('frontend/js/contact.form.js') }}"></script>
 <script src="{{ asset('frontend/js/init.js') }}"></script>
 <!-- /SCRIPTS -->
+
+<script>
+    $(document).on('click', '.read-more', function(e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        var $container = $('[data-id="' + id + '"]');
+
+        var fullText = $container.data('full');
+        var isExpanded = $container.hasClass('expanded');
+
+        if (!isExpanded) {
+            $container.html(fullText + ' <a href="#" class="read-more" data-id="' + id + '">Read Less</a>');
+            $container.addClass('expanded');
+        } else {
+            var words = fullText.split(' ');
+            var shortText = words.slice(0, 10).join(' ') + '...';
+            $container.html(shortText + ' <a href="#" class="read-more" data-id="' + id + '">Read More</a>');
+            $container.removeClass('expanded');
+        }
+    });
+</script>
 
 </body>
 </html>

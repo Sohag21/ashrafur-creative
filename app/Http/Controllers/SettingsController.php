@@ -32,6 +32,7 @@ class SettingsController extends Controller
             'cover' => $settings->cover ? 'nullable|image|max:2048' : 'nullable|image|max:2048',
             'resume' => $settings->resume ? 'nullable|max:3072' : 'nullable|max:3072',
             'about' => 'required',
+            'motivation' => 'nullable',
             'address' => 'required',
             'interests' => 'nullable|array',
             'interests.*' => 'string',
