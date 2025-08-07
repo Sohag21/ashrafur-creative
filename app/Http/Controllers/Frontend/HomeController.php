@@ -22,7 +22,7 @@ class HomeController extends Controller
     {
         $services = Service::select('id', 'name', 'icon', 'features')->where('status', 1)->get();
 
-        $profile = Settings::select('institute', 'degree', 'public_email', 'phone', 'photo', 'cover', 'resume', 'about', 'address', 'interests', 'awards', 'languages', 'facts', 'skills', 'educations', 'experiences', 'links', 'designation')->get();
+        $profile = Settings::select('institute', 'degree', 'public_email', 'phone', 'photo', 'cover', 'resume', 'about', 'motivation', 'address', 'interests', 'awards', 'languages', 'facts', 'skills', 'educations', 'experiences', 'links', 'designation')->get();
         $data = $profile[0];
 
         $partners = Partner::select('name', 'image')->where('status', 1)->get();

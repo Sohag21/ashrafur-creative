@@ -34,7 +34,6 @@
                                 @endif
                             </div>
                         </div>
-                        {{-- @dd($settings) --}}
                         <div class="row">
                           <form class="col s12" method="POST" action="{{ route('settings.update', $user->id) }}" enctype="multipart/form-data">
                             @csrf

@@ -120,7 +120,7 @@
 								</h3>
 
                                 <div class="home-des">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas fugiat perspiciatis ullam tempore magnam libero blanditiis quasi praesentium quod, placeat ea impedit odio deleniti facilis, at laborum vitae quas ab aut laboriosam voluptatibus repellat. Cupiditate harum voluptates dignissimos ipsa! Dolore maxime magnam fuga laborum quae debitis similique molestiae cum harum dignissimos, iusto, cupiditate nobis praesentium eveniet tenetur consectetur repudiandae consequatur est repellendus atque omnis illum necessitatibus! Est architecto exercitationem expedita fugit, dolor, officia aspernatur iste, optio labore neque accusantium sequi.</p>
+                                    <p>{{ $data->motivation }}</p>
                                 </div>
 								<div class="kioto_tm_button transition_link">
 									<a class="tm_text_effect" href="#contact">Get in Touch</a>

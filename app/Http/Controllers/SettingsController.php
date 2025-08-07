@@ -13,7 +13,7 @@ class SettingsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $data = Settings::select('phone', 'public_email', 'about', 'address', 'photo', 'cover', 'interests', 'awards', 'designation')->first();
+        $data = Settings::select('phone', 'public_email', 'about', 'motivation', 'address', 'photo', 'cover', 'interests', 'awards', 'designation')->first();
         return view('pages.back.settings.index', compact('user', 'data'));
     }
 
@@ -43,7 +43,7 @@ class SettingsController extends Controller
         ]);
 
         $dataOne = $request->only('name', 'email');
-        $data = $request->only('phone', 'public_email', 'photo', 'cover', 'resume', 'about', 'address', 'interests', 'awards', 'designation');
+        $data = $request->only('phone', 'public_email', 'photo', 'cover', 'resume', 'about', 'motivation', 'address', 'interests', 'awards', 'designation');
 
         if ($request->hasFile('photo')) {
             if ($settings->photo) {
