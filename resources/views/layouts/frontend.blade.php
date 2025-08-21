@@ -268,22 +268,24 @@
 									</div>
 								</div>
 								<div class="right">
-									<div class="kioto_tm_title">
-										<span>// Awwards</span>
-									</div>
-									<div class="list">
-										<ul>
-                                            @php
-                                                $awards = $data->awards;
-                                            @endphp
+                                    @php
+                                        $awards = $data->awards;
+                                    @endphp
 
-                                            @foreach ($awards as $award)
-											<li>
-												<span><label>&check;</label>{{ $award }}</span>
-											</li>
-                                            @endforeach
-										</ul>
-									</div>
+                                    @if (!empty($awards))
+                                        <div class="kioto_tm_title">
+										    <span>// Awwards</span>
+                                        </div>
+                                        <div class="list">
+                                            <ul>
+                                                @foreach ($awards as $award)
+                                                <li>
+                                                    <span><label>&check;</label>{{ $award }}</span>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 								</div>
 							</div>
 							<div class="kioto_tm_timeline">

@@ -28,6 +28,7 @@ class ServiceController extends Controller
             'features.*' => 'string',
         ]);
 
+        // return $request;
         $data = $request->only('name', 'icon', 'features');
 
         if ($request->hasFile('icon')) {
