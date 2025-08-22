@@ -1866,3 +1866,27 @@ a{
 	.kioto_tm_intro .features_wrapper ul{margin: 0px;}
 	.kioto_tm_intro .features_wrapper ul li{width: 100%;padding-left: 0px;}
 }
+
+@media (max-height: 845px) {
+  .kioto_tm_all_wrap .leftpart .menu {
+        padding: 110px 0px 10px 0px;
+    }
+    .kioto_tm_all_wrap .leftpart .logo img {
+        max-width: 110px;
+    }
+    .kioto_tm_all_wrap .leftpart_inner .logo {
+        top: 70px;
+    }
+}
+
+@media (max-height: 700px) {
+  .kioto_tm_all_wrap .leftpart .menu {
+        padding: 100px 0px 10px 0px;
+    }
+    .kioto_tm_all_wrap .leftpart .logo img {
+        max-width: 100px;
+    }
+    .kioto_tm_all_wrap .leftpart_inner .logo {
+        top: 50px;
+    }
+}
